@@ -41,7 +41,7 @@ Once you have feature files, on Windows:
 cd C:\path\to\repo
 .\venv\Scripts\activate
 (venv) cd features
-(venv) behave -i <filename>.feature
+(venv) behave -i filename.feature
 </pre>
 
 On Linux:
@@ -49,7 +49,7 @@ On Linux:
 cd /path/to/repo
 source venv/bin/activate
 (venv) cd features
-(venv) behave -i <filename>.feature
+(venv) behave -i filename.feature
 </pre>
 
 # More Information
