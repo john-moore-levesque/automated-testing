@@ -1,0 +1,16 @@
+from os import name
+
+def downloads():
+    if name == "nt":
+        downloads = # some windows download path
+    else:
+        downloads = # some linux download path
+    return downloads
+
+'''
+You can have additional functions here - for instance, if you want to test
+authentication, you could have a function that returns information about the
+authentication methods you want to use.
+'''
+def authInformation():
+    pass

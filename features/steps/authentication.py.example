@@ -1,0 +1,13 @@
+from behave import *
+from local_settings import authInformation
+
+
+@when(u'we authenticate')
+def step_impl(context):
+    authenticate(context)
+
+def authenticate(context):
+    # the logic for making authenticated testing work goes here
+    # get information from local_settings.authInformation
+    authInfo = authInformation()
+    pass
