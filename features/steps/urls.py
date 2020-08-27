@@ -3,6 +3,8 @@ from behave import *
 # Go to a specified URL
 @when(u'we visit "{url}"')
 @when(u'we go to "{url}"')
+@given(u'we visit "{url}"')
+@given(u'we go to "{url}"')
 def step_impl(context, url):
     context.browser.browser.get(url)
 
