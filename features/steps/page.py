@@ -1,6 +1,7 @@
 from behave import *
 
 # Check the page title
+@given(u'the title is "{title}"')
 @then(u'the title should be "{title}"')
 def step_impl(context, title):
     try:
