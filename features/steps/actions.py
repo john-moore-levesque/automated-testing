@@ -53,6 +53,8 @@ def step_impl(context, link):
 # Put text into a field
 @when(u'we put "{text}" into "{field}"')
 @when(u'we put "{text}" into the "{field}" field')
+@given(u'we put "{text}" into "{field}"')
+@given(u'we put "{text}" into the "{field}" field')
 def step_impl(context, text, field):
     inputField = getElement(context, "input", field)
     try:
