@@ -43,8 +43,10 @@ class Browser():
         chrome_options.add_argument("--disable-application-cache")
         chrome_options.add_argument("--verbose")
         chrome_options.add_argument("--disable_notifications")
-        for argument in additionalChromeOptions():
-            chrome_options.add_argument(argument)
+        additionals = additionalChromeOptions()
+        if type(additionals) == list:
+            for argument in additionals:
+                chrome_options.add_argument(argument)
         chrome_options.add_experimental_option("prefs", {
             "download.default_directory": "%s" %(self.downloads),
             "download.prompt_for_download": False,
