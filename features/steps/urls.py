@@ -19,3 +19,14 @@ def step_impl(context, currentUrl):
         assert context.browser.browser.current_url == currentUrl
     except AssertionError:
         return False
+
+# Partial URL match (useful if you have a URL that contains a session ID)
+@given(u'the current URL contains "{currentUrl}"')
+@given(u'the current URL should contain "{currentUrl}"')
+@then(u'the current URL contains "{currentUrl}"')
+@then(u'the current URL should contain "{currentUrl}"')
+def step_impl(context, currentUrl):
+    try:
+        assert currentUrl in context.browser.browser.current_url
+    except AssertionError:
+        return False
