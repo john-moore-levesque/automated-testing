@@ -7,6 +7,12 @@ def downloads():
         downloads = # some linux download path
     return downloads
 
+def additionalChromeOptions():
+    # additional chrome_options arguments - return a list
+    # e.g., if you want your ad blcoking extension to load, do that here
+    pass
+
+
 '''
 You can have additional functions here - for instance, if you want to test
 authentication, you could have a function that returns information about the

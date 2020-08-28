@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from os import mkdir, name, listdir, curdir, stat
 from shutil import rmtree
-from local_settings import downloads
+from local_settings import downloads, additionalChromeOptions
 import time
 
 
@@ -43,6 +43,8 @@ class Browser():
         chrome_options.add_argument("--disable-application-cache")
         chrome_options.add_argument("--verbose")
         chrome_options.add_argument("--disable_notifications")
+        for argument in additionalChromeOptions():
+            chrome_options.add_argument(argument)
         chrome_options.add_experimental_option("prefs", {
             "download.default_directory": "%s" %(self.downloads),
             "download.prompt_for_download": False,
