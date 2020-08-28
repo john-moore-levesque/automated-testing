@@ -31,7 +31,6 @@ def step_impl(context, radiotext):
         return False
 
 # Click a checkbox
-# When we click on the "DT_101" checkbox
 @when(u'we click on the "{checkbox}" checkbox')
 def step_impl(context, checkbox):
     myCheckbox = getElement(context, "input", checkbox, ("type", "checkbox"))
