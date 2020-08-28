@@ -20,6 +20,17 @@ def step_impl(context, testString):
         return False
 
 
+# Check the page source for one of two possible test strings
+@given(u'it says either "{testString1}" or "{testString2}"')
+@then(u'it should include either "{testString1}" or "{testString2}"')
+@then(u'it should say either "{testString1}" or "{testString2}"')
+def step_impl(context, testString1, testString2):
+    try:
+        assert testString1 in context.browser.browser.page_source or testString2 in context.browser.browser.page_source
+    except AssertionError:
+        return False
+
+
 # Check the page source for the ABSENCE of a testString
 @then(u'it should NOT include "{testString}"')
 @then(u'it should NOT say "{testString}"')
