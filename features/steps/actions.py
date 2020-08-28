@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 def getElement(context, elementType, identifier, property=False):
     elements = context.browser.browser.find_elements_by_tag_name("%s" %(elementType))
     best = set()
-    attributeList = ["title", "value", "placeholder", "id", "label", "type", "name", "text"]
+    attributeList = ["title", "value", "placeholder", "id", "label", "type", "name", "text", "src"]
     for _element in elements:
         for _attribute in attributeList:
             if _element.get_attribute(_attribute) == identifier:

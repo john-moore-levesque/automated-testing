@@ -1,4 +1,15 @@
 from behave import *
+from actions import getElement
+
+# Check for an image with a specified source
+@given(u'it has an image with the source "{source}"')
+@then(u'it has an image with the source "{source}"')
+def step_impl(context, source):
+    myImage = getElement(context, "img", source)
+    if myImage:
+        return True
+    else:
+        return False
 
 # Check the page title
 @given(u'the title is "{title}"')
