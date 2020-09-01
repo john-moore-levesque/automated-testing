@@ -1,5 +1,6 @@
 from behave import *
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 
 def getElement(context, elementType, identifier, property=False):
     elements = context.browser.browser.find_elements_by_tag_name("%s" %(elementType))
@@ -114,16 +115,10 @@ def step_impl(context, filename):
 @given(u'we select "{option}" from the "{dropdown}" dropdown')
 @given(u'we select "{option}" from the dropdown "{dropdown}"')
 def step_impl(context, option, dropdown):
-    dropdowns = context.browser.browser.find_elements_by_tag_name("select")
-    options = context.browser.browser.find_elements_by_tag_name("option")
-    attributeList = ["title", "value", "placeholder", "id", "label", "type", "name"]
-    for _dropdown in dropdowns:
-        for _attribute in attributeList:
-            if _dropdown.get_attribute(_attribute) == dropdown:
-                for _option in options:
-                    if _option.text == option:
-                        context.browser.browser.find_element_by_xpath('//select[@%s="%s"]/option[text()="%s"]' %(identifier, dropdown, option))
-                        return True
+    myDropdown = Select(getElement(context, "select", dropdown))
+    if myDropdown:
+        myDropdown.select_by_visible_text(option)
+        return True
     return False
 
 
