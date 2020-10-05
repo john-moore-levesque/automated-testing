@@ -22,6 +22,12 @@ def additionalChromeOptions():
     pass
 
 
+def additionalFirefoxOptions():
+    # additional chrome_options arguments - return a list
+    # e.g., if you want your ad blcoking extension to load, do that here
+    pass
+
+
 def checkChrome():
     # This function should return true if the chromedriver executable exists
     # If the function does return true, a Chrome browser can be created
