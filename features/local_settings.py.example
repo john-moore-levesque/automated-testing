@@ -1,16 +1,44 @@
-from os import name
+from os import name, stat, makedirs
+from shutil import rmtree
+
 
 def downloads():
+    def _createDownloads(downloads):
+        rmtree(downloads, ignore_errors=True)
+        makedirs(downloads, exit_ok=True)
+
     if name == "nt":
         downloads = # some windows download path
     else:
         downloads = # some linux download path
+
+    _createDownloads(downloads)
     return downloads
 
 def additionalChromeOptions():
     # additional chrome_options arguments - return a list
     # e.g., if you want your ad blcoking extension to load, do that here
     pass
+
+
+  def checkChrome():
+      # This function should return true if the chromedriver executable exists
+      # If the function does return true, a Chrome browser can be created
+      try:
+          stat('''path to chromedriver''')
+      except FileNotFoundError:
+          return False
+      return True
+
+
+  def checkFirefox():
+      # This function should return true if the firefox driver exists
+      # If the function does return true, a Firefox browser can be created
+      try:
+          stat('''path to firefox driver''')
+      except FileNotFoundError:
+          return False
+      return True
 
 
 '''
