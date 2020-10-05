@@ -15,30 +15,39 @@ def downloads():
     _createDownloads(downloads)
     return downloads
 
+
 def additionalChromeOptions():
     # additional chrome_options arguments - return a list
     # e.g., if you want your ad blcoking extension to load, do that here
     pass
 
 
-  def checkChrome():
-      # This function should return true if the chromedriver executable exists
-      # If the function does return true, a Chrome browser can be created
-      try:
-          stat('''path to chromedriver''')
-      except FileNotFoundError:
-          return False
-      return True
+def checkChrome():
+    # This function should return true if the chromedriver executable exists
+    # If the function does return true, a Chrome browser can be created
+    if name == "nt":
+        chromepath = # some windows path
+    else:
+        chromepath = # some linux path
+    try:
+        stat(chromepath)
+    except FileNotFoundError:
+        return False
+    return True
 
 
-  def checkFirefox():
-      # This function should return true if the firefox driver exists
-      # If the function does return true, a Firefox browser can be created
-      try:
-          stat('''path to firefox driver''')
-      except FileNotFoundError:
-          return False
-      return True
+def checkFirefox():
+    # This function should return true if the firefox driver exists
+    # If the function does return true, a Firefox browser can be created
+    if name == "nt":
+        firefoxpath = # some windows path
+    else:
+        firefoxpath = # some linux path
+    try:
+        stat(firefoxpath)
+    except FileNotFoundError:
+        return False
+    return True
 
 
 '''
