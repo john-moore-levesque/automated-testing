@@ -1,7 +1,7 @@
 from chrome import before_all as chromeBrowser
 from firefox import before_all as firefoxBrowser
 from selenium.webdriver.common.keys import Keys
-from local_settings import checkChrome, checkFirefox
+from local_settings import checkChrome, checkFirefox, authInformation
 
 
 def before_all(context):
