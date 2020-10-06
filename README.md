@@ -6,8 +6,11 @@ Automated testing framework using Behave, Python, and Selenium.
 * Python 3.6+
 * VirtualEnv 15.2.1+
 * The Selenium ChromeDriver, downloaded and installed in the selenium-drivers directory
+* The Gecko driver (for Firefox), downloaded and installed in the selenium-drivers directory
 
-Python, VirtualEnv, and the Selenium ChromeDriver must be available on your user's path.
+Note that you do not need both drivers, just one.
+
+Python, VirtualEnv, and the Selenium ChromeDriver (or the Gecko driver) must be available on your user's path.
 
 ## Installation
 This assumes that you have cloned the repo into /path/to/repo (or CL\path\to\repo, for Windows)
@@ -27,6 +30,12 @@ virtualenv venv
 source venv/bin/activate
 (venv) pip install -r requirement.txt
 </pre>
+
+Additionally, if you are using Firefox on Linux you will need to make sure you have:
+* gtk3
+* libXt
+
+(Note that the above was specifically written regarding CentOS - your mileage may vary with other distros.)
 
 ### local_settings.py
 Copy the features/local_settings.py.example file to features/local_settings.py and edit as appropriate.
@@ -54,4 +63,5 @@ source venv/bin/activate
 
 # More Information
 * Selenium ChromeDriver: https://chromedriver.chromium.org/downloads
+* Gecko driver: https://github.com/mozilla/geckodriver/releases
 * Behave: https://behave.readthedocs.io/en/latest/
