@@ -132,3 +132,4 @@ dmypy.json
 features/*.feature
 features/steps/authentication.py
 selenium-drivers/*.exe
+features/steps/local_authentication.py
