@@ -15,10 +15,7 @@ def step_impl(context, source):
 @given(u'the title is "{title}"')
 @then(u'the title should be "{title}"')
 def step_impl(context, title):
-    try:
-        assert context.browser.browser.title == title
-    except AssertionError:
-        return False
+    assert context.browser.browser.title == title
 
 
 # Check the page source for a testString
@@ -26,10 +23,7 @@ def step_impl(context, title):
 @then(u'it should include "{testString}"')
 @then(u'it should say "{testString}"')
 def step_impl(context, testString):
-    try:
-        assert testString in context.browser.browser.page_source
-    except AssertionError:
-        return False
+    assert testString in context.browser.browser.page_source
 
 
 # Check the page source for one of two possible test strings
@@ -37,20 +31,15 @@ def step_impl(context, testString):
 @then(u'it should include either "{testString1}" or "{testString2}"')
 @then(u'it should say either "{testString1}" or "{testString2}"')
 def step_impl(context, testString1, testString2):
-    try:
-        assert testString1 in context.browser.browser.page_source or testString2 in context.browser.browser.page_source
-    except AssertionError:
-        return False
+    assert testString1 in context.browser.browser.page_source or testString2 in context.browser.browser.page_source
 
 
 # Check the page source for the ABSENCE of a testString
 @then(u'it should NOT include "{testString}"')
 @then(u'it should NOT say "{testString}"')
 def step_impl(context, testString):
-    try:
-        assert testString not in context.browser.browser.page_source
-    except AssertionError:
-        return False
+    assert testString not in context.browser.browser.page_source
+
 
 # Check for an element in the page
 @then(u'it should have a {thing} with the {identifier} "{thingname}"')

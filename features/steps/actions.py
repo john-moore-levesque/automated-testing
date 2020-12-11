@@ -96,18 +96,13 @@ def step_impl(context, button):
 # Check for downloaded file
 @then(u'there should be a downloaded file named "{filename}"')
 def step_impl(context, filename):
-    try:
-        assert context.browser.statfile(filename)
-    except:
-        context.browser.listDownloads()
+    assert context.browser.statfile(filename)
+
 
 # Check for a partial downloaded filename
 @then(u'there should be a downloaded file that contains "{filename}"')
 def step_impl(context, filename):
-    try:
-        assert context.browser.statfile(filename, partial=True)
-    except:
-        context.browser.listDownloads()
+    assert context.browser.statfile(filename, partial=True)
 
 # Select from a dropdown
 @when(u'we select "{option}" from the "{dropdown}" dropdown')
