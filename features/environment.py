@@ -1,7 +1,5 @@
-from chrome import before_all as chromeBrowser
-from firefox import before_all as firefoxBrowser
-from selenium.webdriver.common.keys import Keys
-from local_settings import checkChrome, checkFirefox, authInformation
+from local_settings import checkChrome, checkFirefox
+import behave_webdriver
 
 
 def before_all(context):
@@ -11,8 +9,18 @@ def before_all(context):
     chrome = checkChrome()
     firefox = checkFirefox()
     if chrome:
-        chromeBrowser(context)
+        context.behave_driver = behave_webdriver.Chrome.headless()
     elif firefox:
-        firefoxBrowser(context)
+        context.behave_driver = behave_webdriver.Firefox.headless()
     else:
         return False
+
+
+def after_all(context):
+    context.behave_driver.quit()
+
+# def before_all(context):
+#     context.behave_driver = behave_webdriver.Firefox.headless()
+#
+# def after_all(context):
+#     context.behave_driver.quit()

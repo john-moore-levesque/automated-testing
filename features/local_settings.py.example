@@ -1,32 +1,4 @@
-from os import name, stat, makedirs
-from shutil import rmtree
-
-
-def downloads():
-    def _createDownloads(downloads):
-        rmtree(downloads, ignore_errors=True)
-        makedirs(downloads, exist_ok=True)
-
-    if name == "nt":
-        downloads = # some windows download path
-    else:
-        downloads = # some linux download path
-
-    _createDownloads(downloads)
-    return downloads
-
-
-def additionalChromeOptions():
-    # additional chrome_options arguments - return a list
-    # e.g., if you want your ad blcoking extension to load, do that here
-    pass
-
-
-def additionalFirefoxOptions():
-    # additional chrome_options arguments - return a list
-    # e.g., if you want your ad blcoking extension to load, do that here
-    pass
-
+from os import name, stat
 
 def checkChrome():
     # This function should return true if the chromedriver executable exists

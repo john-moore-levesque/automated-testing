@@ -4,3 +4,4 @@ parse-type>=0.5.2
 selenium>=3.141.0
 six>=1.15.0
 urllib3>=1.25.10
+behave-webdriver>=0.3.0
