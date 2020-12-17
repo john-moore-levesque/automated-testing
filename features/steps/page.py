@@ -54,3 +54,17 @@ def step_impl(context, thing, identifier, thingname):
         assert context.browser.browser.find_element_by_xpath(thingname)
     else:
         assert context.browser.browser.find_element_by_id(thingname)
+
+
+# Switch to a different frame
+@when(u'we switch to "{frame}"')
+@given(u'we switch to "{frame}"')
+def step_impl(context, frame):
+    context.browser.browser.switch_to_frame(frame)
+
+
+# Switch to the main body
+@when(u'we switch to the main body')
+@given(u'we switch to the main body')
+def step_impl(context):
+    context.browser.browser.switch_to_default_content()
