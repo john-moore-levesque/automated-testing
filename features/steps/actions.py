@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import Select
 def getElement(context, elementType, identifier, property=False):
     elements = context.browser.browser.find_elements_by_tag_name("%s" %(elementType))
     best = set()
-    attributeList = ["title", "value", "placeholder", "id", "label", "type", "name", "text", "src", "for"]
+    attributeList = ["title", "value", "placeholder", "id", "label", "type", "name", "text", "src", "for", "class"]
     for _element in elements:
         for _attribute in attributeList:
             if _element.get_attribute(_attribute) == identifier:
@@ -42,7 +42,9 @@ def step_impl(context, checkbox):
 
 # Click on a link
 @when(u'we click on a link called "{link}"')
+@when(u'we click on the link called "{link}"')
 @given(u'we click on a link called "{link}"')
+@given(u'we click on the link called "{link}"')
 def step_impl(context, link):
     myLink = context.browser.browser.find_element_by_link_text(link)
     if myLink:
@@ -93,16 +95,6 @@ def step_impl(context, button):
     else:
         return False
 
-# Check for downloaded file
-@then(u'there should be a downloaded file named "{filename}"')
-def step_impl(context, filename):
-    assert context.browser.statfile(filename)
-
-
-# Check for a partial downloaded filename
-@then(u'there should be a downloaded file that contains "{filename}"')
-def step_impl(context, filename):
-    assert context.browser.statfile(filename, partial=True)
 
 # Select from a dropdown
 @when(u'we select "{option}" from the "{dropdown}" dropdown')
