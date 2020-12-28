@@ -61,6 +61,15 @@ source venv/bin/activate
 (venv) behave -i filename.feature
 </pre>
 
+# Why Not behave-webdriver?
+No disrespect to the developers of behave-webdriver (https://pypi.org/project/behave-webdriver/), but I found that for my purposes, it was just too limited. In particular, my goal was to create a test suite that *didn't* require you to use the full XPATH, or the exact CSS properties. Rather, I wanted something where anyone could look at a rendered webpage in their browser, see a button called "Click me!" and write a test that would click the "Click me!" button.
+
+When I was reviewing the behave-webdriver documentation and source code, and experimenting with how to use it, I kept getting stymied by the fact that I was able to look at the rendered web page, see the "Click me!" button, and *not* be able to click it without having to go through a lot of hoops.
+
+# Writing Tests
+* [Available Tests](docs/available-tests.md)
+* [Simple Tests](docs/simple.md)
+
 # More Information
 * Selenium ChromeDriver: https://chromedriver.chromium.org/downloads
 * Gecko driver: https://github.com/mozilla/geckodriver/releases
