@@ -24,7 +24,7 @@ def getElement(context, elementType, identifier, property=False):
 
 # Click on a radio button
 @when(u'we select the radio button marked "{radiotext}"')
-def step_impl(context, radiotext):
+def radio(context, radiotext):
     myRadio = getElement(context, "input", radiotext, ("type", "radio"))
     if myRadio:
         myRadio.click()
@@ -33,7 +33,7 @@ def step_impl(context, radiotext):
 
 # Click a checkbox
 @when(u'we click on the "{checkbox}" checkbox')
-def step_impl(context, checkbox):
+def checkbox(context, checkbox):
     myCheckbox = getElement(context, "input", checkbox, ("type", "checkbox"))
     if myCheckbox:
         myCheckbox.click()
@@ -42,7 +42,7 @@ def step_impl(context, checkbox):
 
 # Click on a link
 @when(u'we click on the link called "{link}"')
-def step_impl(context, link):
+def link(context, link):
     myLink = context.browser.browser.find_element_by_link_text(link)
     if myLink:
         myLink.click()
@@ -51,7 +51,7 @@ def step_impl(context, link):
 
 # Put text into a field
 @when(u'we put "{text}" into the "{field}" field')
-def step_impl(context, text, field):
+def putTextInField(context, text, field):
     inputField = getElement(context, "input", field)
     try:
         inputField.send_keys(text)
@@ -60,7 +60,7 @@ def step_impl(context, text, field):
 
 # Hit enter in a field
 @when(u'we hit enter in the field "{field}"')
-def step_impl(context, field):
+def hitEnterInField(context, field):
     inputField = getElement(context, "input", field)
     try:
         inputField.send_keys(Keys.ENTER)
@@ -69,7 +69,7 @@ def step_impl(context, field):
 
 # Click on something
 @when(u'we click {extraText} {fieldType} {fillerText} "{thingToClick}"')
-def step_impl(context, extraText, fieldType, fillerText, thingToClick):
+def clickSomething(context, extraText, fieldType, fillerText, thingToClick):
     fieldToClick = getElement(context, fieldType, thingToClick)
     if fieldToClick:
         fieldToClick.click()
@@ -79,7 +79,7 @@ def step_impl(context, extraText, fieldType, fillerText, thingToClick):
 
 # Click on a button (specifically)
 @when(u'we click the "{button}" button')
-def step_impl(context, button):
+def button(context, button):
     buttonToClick = getElement(context, "button", button)
     if buttonToClick:
         buttonToClick.click()
@@ -90,7 +90,7 @@ def step_impl(context, button):
 
 # Select from a dropdown
 @when(u'we select "{option}" from the dropdown "{dropdown}"')
-def step_impl(context, option, dropdown):
+def dropdown(context, option, dropdown):
     myDropdown = Select(getElement(context, "select", dropdown))
     if myDropdown:
         myDropdown.select_by_visible_text(option)
@@ -100,18 +100,18 @@ def step_impl(context, option, dropdown):
 
 # Clear cookies
 @when(u'we clear cache')
-def step_impl(context):
+def cache(context):
     context.browser.clearCache()
 
 # Wait 5 seconds (default)
 @when(u'we wait')
 @given(u'we wait')
-def step_impl(context):
+def wait(context):
     context.browser.wait()
 
 @when(u'we wait {n} seconds')
 @given(u'we wait {n} seconds')
-def step_impl(context, n):
+def waitTime(context, n):
     try:
         n = int(n)
     except ValueError:
