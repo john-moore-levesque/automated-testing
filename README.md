@@ -13,7 +13,7 @@ Note that you do not need both drivers, just one.
 Python, VirtualEnv, and the Selenium ChromeDriver (or the Gecko driver) must be available on your user's path.
 
 ## Installation
-This assumes that you have cloned the repo into /path/to/repo (or CL\path\to\repo, for Windows)
+This assumes that you have cloned the repo into /path/to/repo (or C:\path\to\repo, for Windows)
 
 ### Windows
 <pre>
