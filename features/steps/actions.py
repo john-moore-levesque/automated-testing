@@ -42,7 +42,6 @@ def step_impl(context, checkbox):
 
 # Click on a link
 @when(u'we click on the link called "{link}"')
-@given(u'we click on the link called "{link}"')
 def step_impl(context, link):
     myLink = context.browser.browser.find_element_by_link_text(link)
     if myLink:
@@ -52,7 +51,6 @@ def step_impl(context, link):
 
 # Put text into a field
 @when(u'we put "{text}" into the "{field}" field')
-@given(u'we put "{text}" into the "{field}" field')
 def step_impl(context, text, field):
     inputField = getElement(context, "input", field)
     try:
@@ -71,7 +69,6 @@ def step_impl(context, field):
 
 # Click on something
 @when(u'we click {extraText} {fieldType} {fillerText} "{thingToClick}"')
-@given(u'we click {extraText} {fieldType} {fillerText} "{thingToClick}"')
 def step_impl(context, extraText, fieldType, fillerText, thingToClick):
     fieldToClick = getElement(context, fieldType, thingToClick)
     if fieldToClick:
@@ -93,7 +90,6 @@ def step_impl(context, button):
 
 # Select from a dropdown
 @when(u'we select "{option}" from the dropdown "{dropdown}"')
-@given(u'we select "{option}" from the dropdown "{dropdown}"')
 def step_impl(context, option, dropdown):
     myDropdown = Select(getElement(context, "select", dropdown))
     if myDropdown:

@@ -30,8 +30,9 @@ Per the documentation, `When` statements take specified actions that should caus
 
 # Given
 Per the documentation, `Given` statements force a known state before the user interacts with the system.
-- `Given we click {extraText} {fieldType} {fillerText} "{thingToClick}"` - click on thingToClick; this is the same logic as the `When` version
 - `Given we go to "{url}"` - go to the specified URL
+- `Given we switch to "{frame}"` - switch to a specified frame
+- `Given we switch to the main body` - switch (back) to the main body
 - `Given we wait` - wait for 5 seconds
 - `Given we wait {time} seconds` - wait for the specified number of seconds
 
