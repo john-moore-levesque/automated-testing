@@ -4,7 +4,7 @@ For more information about Behave steps, look at https://behave.readthedocs.io/e
 Per the documentation, `When` statements take specified actions that should cause some state to change.
 - `When we go to "{url}"` - go to the specified url
 - `When we wait` - wait for 5 seconds
-- `When we wait {time} seconds` - wait for the specified number of seconds
+- `When we wait {n} seconds` - wait for the specified number of seconds
 - `When we clear cache` - clear the browser cache
 - `When we click on the link called "{link}"` - click on a link with the displayed text
 - `When we select "{option}" from the dropdown "{dropdown}"` - select the option from the specified dropdown
@@ -34,7 +34,7 @@ Per the documentation, `Given` statements force a known state before the user in
 - `Given we switch to "{frame}"` - switch to a specified frame
 - `Given we switch to the main body` - switch (back) to the main body
 - `Given we wait` - wait for 5 seconds
-- `Given we wait {time} seconds` - wait for the specified number of seconds
+- `Given we wait {n} seconds` - wait for the specified number of seconds
 
 # Then
 Per the documentation, `Then` statements observe outcomes and compare the outcomes to expectations.

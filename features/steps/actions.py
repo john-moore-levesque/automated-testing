@@ -99,7 +99,6 @@ def step_impl(context, option, dropdown):
 
 
 # Clear cookies
-@when(u'we clear the cache')
 @when(u'we clear cache')
 def step_impl(context):
     context.browser.clearCache()
