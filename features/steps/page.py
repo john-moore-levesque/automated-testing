@@ -2,7 +2,6 @@ from behave import *
 from actions import getElement
 
 # Check for an image with a specified source
-@given(u'it has an image with the source "{source}"')
 @then(u'it has an image with the source "{source}"')
 def step_impl(context, source):
     myImage = getElement(context, "img", source)
@@ -12,37 +11,31 @@ def step_impl(context, source):
         return False
 
 # Check the page title
-@given(u'the title is "{title}"')
-@then(u'the title should be "{title}"')
+@then(u'the title is "{title}"')
 def step_impl(context, title):
     assert context.browser.browser.title == title
 
 
 # Check the page source for a testString
-@given(u'it says "{testString}"')
-@then(u'it should include "{testString}"')
-@then(u'it should say "{testString}"')
+@then(u'it says "{testString}"')
 def step_impl(context, testString):
     assert testString in context.browser.browser.page_source
 
 
 # Check the page source for one of two possible test strings
-@given(u'it says either "{testString1}" or "{testString2}"')
-@then(u'it should include either "{testString1}" or "{testString2}"')
-@then(u'it should say either "{testString1}" or "{testString2}"')
+@then(u'it says either "{testString1}" or "{testString2}"')
 def step_impl(context, testString1, testString2):
     assert testString1 in context.browser.browser.page_source or testString2 in context.browser.browser.page_source
 
 
 # Check the page source for the ABSENCE of a testString
-@then(u'it should NOT include "{testString}"')
-@then(u'it should NOT say "{testString}"')
+@then(u'it does NOT say "{testString}"')
 def step_impl(context, testString):
     assert testString not in context.browser.browser.page_source
 
 
 # Check for an element in the page
-@then(u'it should have a {thing} with the {identifier} "{thingname}"')
+@then(u'it has a {thing} with the {identifier} "{thingname}"')
 def step_impl(context, thing, identifier, thingname):
     if "tag" in identifier.lower():
         assert context.browser.browser.find_elements_by_tag_name(thingname)

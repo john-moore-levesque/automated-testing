@@ -23,7 +23,7 @@ def getElement(context, elementType, identifier, property=False):
         return best.pop()
 
 # Click on a radio button
-@when(u'we select a radio button marked "{radiotext}"')
+@when(u'we select the radio button marked "{radiotext}"')
 def step_impl(context, radiotext):
     myRadio = getElement(context, "input", radiotext, ("type", "radio"))
     if myRadio:
@@ -41,9 +41,7 @@ def step_impl(context, checkbox):
         return False
 
 # Click on a link
-@when(u'we click on a link called "{link}"')
 @when(u'we click on the link called "{link}"')
-@given(u'we click on a link called "{link}"')
 @given(u'we click on the link called "{link}"')
 def step_impl(context, link):
     myLink = context.browser.browser.find_element_by_link_text(link)
@@ -53,9 +51,7 @@ def step_impl(context, link):
         return False
 
 # Put text into a field
-@when(u'we put "{text}" into "{field}"')
 @when(u'we put "{text}" into the "{field}" field')
-@given(u'we put "{text}" into "{field}"')
 @given(u'we put "{text}" into the "{field}" field')
 def step_impl(context, text, field):
     inputField = getElement(context, "input", field)
@@ -66,7 +62,6 @@ def step_impl(context, text, field):
 
 # Hit enter in a field
 @when(u'we hit enter in the field "{field}"')
-@when(u'we hit enter in the "{field}" field')
 def step_impl(context, field):
     inputField = getElement(context, "input", field)
     try:
@@ -75,10 +70,10 @@ def step_impl(context, field):
         return False
 
 # Click on something
-@when(u'we click {extraText} {fieldType} {fillerText} "{button}"')
-@given(u'we click {extraText} {fieldType} {fillerText} "{button}"')
-def step_impl(context, extraText, fieldType, fillerText, button):
-    fieldToClick = getElement(context, fieldType, button)
+@when(u'we click {extraText} {fieldType} {fillerText} "{thingToClick}"')
+@given(u'we click {extraText} {fieldType} {fillerText} "{thingToClick}"')
+def step_impl(context, extraText, fieldType, fillerText, thingToClick):
+    fieldToClick = getElement(context, fieldType, thingToClick)
     if fieldToClick:
         fieldToClick.click()
         return True
@@ -97,9 +92,7 @@ def step_impl(context, button):
 
 
 # Select from a dropdown
-@when(u'we select "{option}" from the "{dropdown}" dropdown')
 @when(u'we select "{option}" from the dropdown "{dropdown}"')
-@given(u'we select "{option}" from the "{dropdown}" dropdown')
 @given(u'we select "{option}" from the dropdown "{dropdown}"')
 def step_impl(context, option, dropdown):
     myDropdown = Select(getElement(context, "select", dropdown))
