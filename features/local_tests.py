@@ -1,8 +1,7 @@
-from os import environ, stat
-from dotenv import load_dotenv
-from local_settings import authInformation, checkFirefox, checkChrome
+from local_settings import checkFirefox, checkChrome, load_env
 from chrome import Browser as Chrome
 from firefox import Browser as Firefox
+
 
 '''
 This file contains versions of the test scripts that can be easily run from the
@@ -12,14 +11,10 @@ test. For instance, if you have a test that's not finding a button you expect
 it to find, you can use the functions in this file to help figure out exactly
 what behave is seeing when you run it.
 '''
-def env(envfile=".env"):
-    try:
-        stat(envfile)
-    except FileNotFoundError:
-        return False
-    load_dotenv(envfile)
+
 
 def createBrowser():
+    load_env()
     chrome = checkChrome()
     firefox = checkFirefox()
     if chrome:

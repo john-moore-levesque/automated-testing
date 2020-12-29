@@ -1,5 +1,22 @@
-from os import name, stat, makedirs
+from os import name, stat, makedirs, environ
 from shutil import rmtree
+from dotenv import load_dotenv
+
+
+def load_env():
+    '''
+    If you have anything you want to load as an environment variable, put it into
+    a file in the "features" directory called ".env". You can also override the
+    default path by creating an environment variable called "ENVFILE"
+    '''
+    if environ.get("ENVFILE"):
+        try:
+            stat(environ.get("ENVFILE"))
+            load_dotenv(environ.get("ENVFILE"))
+        except OSError:
+            load_dotenv(".env")
+    else:
+        load_dotenv(".env")
 
 
 def downloads():
@@ -17,20 +34,26 @@ def downloads():
 
 
 def additionalChromeOptions():
-    # additional chrome_options arguments - return a list
-    # e.g., if you want your ad blcoking extension to load, do that here
+    '''
+    additional chrome_options arguments - return a list
+    e.g., if you want your ad blocking extension to load, do that here
+    '''
     pass
 
 
 def additionalFirefoxOptions():
-    # additional chrome_options arguments - return a list
-    # e.g., if you want your ad blcoking extension to load, do that here
+    '''
+    additional chrome_options arguments - return a list
+    e.g., if you want your ad blocking extension to load, do that here
+    '''
     pass
 
 
 def checkChrome():
-    # This function should return true if the chromedriver executable exists
-    # If the function does return true, a Chrome browser can be created
+    '''
+    This function should return true if the chromedriver executable exists
+    If the function does return true, a Chrome browser can be created
+    '''
     if name == "nt":
         chromepath = # some windows path
     else:
@@ -43,8 +66,10 @@ def checkChrome():
 
 
 def checkFirefox():
-    # This function should return true if the firefox driver exists
-    # If the function does return true, a Firefox browser can be created
+    '''
+    This function should return true if the firefox driver exists
+    If the function does return true, a Firefox browser can be created
+    '''
     if name == "nt":
         firefoxpath = # some windows path
     else:
