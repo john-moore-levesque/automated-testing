@@ -13,7 +13,7 @@ class Browser():
 
     def createBrowser(self):
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
+        # chrome_options.add_argument("--headless")
         chrome_options.add_argument("--window-size=1920x1080")
         chrome_options.add_argument("--disable-application-cache")
         chrome_options.add_argument("--verbose")
@@ -30,6 +30,9 @@ class Browser():
 
     def wait(self, seconds=5):
         time.sleep(seconds)
+
+    def disappeared(self, xpath):
+        checkThingDisappeared(self.browser, xpath)
 
 
 @fixture

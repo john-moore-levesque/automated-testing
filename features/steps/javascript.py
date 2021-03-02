@@ -10,7 +10,7 @@ def jsTextId(context, field, text):
 
 @when(u'we put "{text}" into the field with the class "{field}" using JavaScript')
 def jsTextClass(context, field, text):
-    context.browser.browser.execute_script("document.getElementsByClass('%s')[0].setAttribute('value', '%s')" %(field, text))
+    context.browser.browser.execute_script("document.getElementsByClassName('%s')[0].setAttribute('value', '%s')" %(field, text))
 
 @when(u'we click on something with the ID "{thing}" using JavaScript')
 def jsClickId(context, thing):
@@ -18,7 +18,7 @@ def jsClickId(context, thing):
 
 @when(u'we click on something with the class "{thing}" using JavaScript')
 def jsClickId(context, thing):
-    context.browser.browser.execute_script("document.getElementsByClass('%s')[0].click()" %(thing))
+    context.browser.browser.execute_script("document.getElementsByClassName('%s')[0].click()" %(thing))
 
 @when(u'we make "{element}" disappear with JavaScript')
 def jsDisappear(context, element):
