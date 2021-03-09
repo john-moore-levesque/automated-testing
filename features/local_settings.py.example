@@ -3,6 +3,14 @@ from shutil import rmtree
 from dotenv import load_dotenv
 
 
+def scratchDir():
+    # Return a "scratch" directory for screenshot comparison
+    if name == "nt":
+        scratch = r'C:\\Users\\john\\scratch'
+    else:
+        scratch = '/tmp'
+    return scratch
+
 def load_env():
     '''
     If you have anything you want to load as an environment variable, put it into

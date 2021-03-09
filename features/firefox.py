@@ -1,7 +1,7 @@
 from behave import fixture, use_fixture
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-from local_settings import additionalFirefoxOptions
+from local_settings import additionalFirefoxOptions, scratchDir()
 from os import listdir
 import time
 
@@ -10,6 +10,7 @@ class Browser():
     def __init__(self):
         self.browser = self.createBrowser()
         self.browser.implicitly_wait(60)
+        self.scratch = scratchDir()
 
     def createBrowser(self):
         firefox_options = Options()
