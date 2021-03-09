@@ -1,7 +1,7 @@
 from behave import fixture, use_fixture
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-from local_settings import additionalFirefoxOptions, scratchDir()
+from local_settings import additionalFirefoxOptions, scratchDir
 from os import listdir
 import time
 
