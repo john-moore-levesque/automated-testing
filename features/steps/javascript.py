@@ -17,7 +17,7 @@ def jsClickId(context, thing):
     context.browser.browser.execute_script("document.getElementById('%s').click()" %(thing))
 
 @when(u'we click on something with the class "{thing}" using JavaScript')
-def jsClickId(context, thing):
+def jsClickClass(context, thing):
     context.browser.browser.execute_script("document.getElementsByClassName('%s')[0].click()" %(thing))
 
 @when(u'we make "{element}" disappear with JavaScript')
